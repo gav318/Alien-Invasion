@@ -11,3 +11,4 @@ from "Python Crash Course"
          Refactored _check_events()\
          Pressing Q to Quit\
          Fullscreen Mode
+21.07.31 Added Bullets
