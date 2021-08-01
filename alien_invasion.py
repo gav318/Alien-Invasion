@@ -48,6 +48,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+
             # Get rid of bullets that have disappeared.
 
             # moved v into the function "self._update_bullets()""
@@ -58,6 +59,7 @@ class AlienInvasion:
             # print(len(self.bullets))      # check if we have deleted the bullets, this reduces game performace significantly
 
             self._update_screen()
+
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -116,10 +118,39 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+    # def _create_fleet(self):
+    #     """Create the fleet of aliens."""
+    #     # Make an alien.
+    #     alien = Alien(self)
+    #     self.aliens.add(alien)
+
+    # ^ create one single alien
+    # v create a fleet of aliens
     def _create_fleet(self):
         """Create the fleet of aliens."""
-        # Make an alien.
+        # Create an alien and find the number of aliens in a row.
+        # Spacing between each alien is equal to one alien width.
         alien = Alien(self)
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+        # Create the first row of aliens.
+        for alien_number in range(number_aliens_x):
+            # Create an alien and place it in the row.
+            # v moved into "def _create_alien(self, alien_number)""
+            # alien = Alien(self)
+            # alien.x = alien_width + 2 * alien_width * alien_number
+            # alien.rect.x = alien.x
+            # self.aliens.add(alien)
+            self._create_alien(alien_number)
+
+
+    def _create_alien(self, alien_number):
+        """Create an alien and place it in the row."""
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
         self.aliens.add(alien)
 
 
@@ -129,9 +160,9 @@ class AlienInvasion:
         # self.screen.fill(self.bg_color) # replaced by v
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
+        self.aliens.draw(self.screen)
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
-        self.aliens.draw(self.screen)
         # Make the most recently drawn screen visible.
         pygame.display.flip()
 

@@ -15,4 +15,5 @@ from "Python Crash Course"
 21.08.01 Deleting Old Bullets\
          Limiting Bullets\
          Refactored Code\
-         Drew One Alien
+         Drew One Alien\
+         Drew One Row of Alien (with Refactored function: (_create_alien())
