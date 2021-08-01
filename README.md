@@ -16,4 +16,5 @@ from "Python Crash Course"
          Limiting Bullets\
          Refactored Code\
          Drew One Alien\
-         Drew One Row of Alien (with Refactored function: (_create_alien())
+         Drew One Row of Alien (with Refactored function: (_create_alien())\
+         Drew a Fleet of Aliens
