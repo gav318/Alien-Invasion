@@ -10,5 +10,8 @@ from "Python Crash Course"
          Limiting the Ship’s Range (not falling off the screen)\
          Refactored _check_events()\
          Pressing Q to Quit\
-         Fullscreen Mode
-21.07.31 Added Bullets
+         Fullscreen Mode\
+21.07.31 Added Bullets\
+21.08.01 Deleting Old Bullets\
+         Limiting Bullets\
+         Refactored Code
